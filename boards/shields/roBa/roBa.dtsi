@@ -1,6 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
-#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
     chosen {
@@ -12,17 +11,16 @@
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
 
-        /* XIAO BLE D0 = P0.02 なので直接指定します */
-        interrupt-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+        /* XIAO BLE D0 (P0.02) を直接指定 */
+        interrupt-gpios = <&gpio0 2 0>; 
 
-        /* 6つのピンを直接指定 (D1, D2, D3, D6, D7, D8) */
         gpios
-            = <&gpio0 3 GPIO_ACTIVE_HIGH>  /* D1 */
-            , <&gpio0 28 GPIO_ACTIVE_HIGH> /* D2 */
-            , <&gpio0 29 GPIO_ACTIVE_HIGH> /* D3 */
-            , <&gpio1 11 GPIO_ACTIVE_HIGH> /* D6 */
-            , <&gpio0 11 GPIO_ACTIVE_HIGH> /* D7 */
-            , <&gpio1 12 GPIO_ACTIVE_HIGH> /* D8 */
+            = <&gpio0 3 0>  /* D1 (P0.03) */
+            , <&gpio0 28 0> /* D2 (P0.28) */
+            , <&gpio0 29 0> /* D3 (P0.29) */
+            , <&gpio1 11 0> /* D6 (P1.11) */
+            , <&gpio0 11 0> /* D7 (P0.11) */
+            , <&gpio1 12 0> /* D8 (P1.12) */
             ;
     };
 
