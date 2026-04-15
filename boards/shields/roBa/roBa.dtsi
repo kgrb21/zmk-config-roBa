@@ -11,16 +11,16 @@
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
 
-        /* XIAO BLE D0 (P0.02) を直接指定 */
-        interrupt-gpios = <&gpio0 2 0>; 
+        /* XIAO BLEのD0ピン（P0.02）を直接指定します */
+        interrupt-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
         gpios
-            = <&gpio0 3 0>  /* D1 (P0.03) */
-            , <&gpio0 28 0> /* D2 (P0.28) */
-            , <&gpio0 29 0> /* D3 (P0.29) */
-            , <&gpio1 11 0> /* D6 (P1.11) */
-            , <&gpio0 11 0> /* D7 (P0.11) */
-            , <&gpio1 12 0> /* D8 (P1.12) */
+            = <&gpio0 3 GPIO_ACTIVE_HIGH>  /* D1 */
+            , <&gpio0 28 GPIO_ACTIVE_HIGH> /* D2 */
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> /* D3 */
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> /* D6 */
+            , <&gpio0 11 GPIO_ACTIVE_HIGH> /* D7 */
+            , <&gpio1 12 GPIO_ACTIVE_HIGH> /* D8 */
             ;
     };
 
