@@ -2,22 +2,16 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: petejohanson
-      url-base: https://github.com/petejohanson
-    - name: kumamuk-git
-      url-base: https://github.com/kumamuk-git
-
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main  # ここを v0.3-branch から main に変更します
+      revision: main  # ここを main にすることで最新機能が使えます
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: kumamuk-git
+      url: https://github.com/kumamuk-git/zmk-pmw3610-driver
       revision: main
     - name: zmk-kscan-gpio-charlieplex
-      remote: petejohanson
+      url: https://github.com/petejohanson/zmk-kscan-gpio-charlieplex
       revision: main
-
   self:
     path: config
