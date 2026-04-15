@@ -1,10 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
-/* GPIOフラグの定義を確実に読み込むために追加 */
-#include <dt-bindings/zmk/keys.h>
 
 / {
     chosen {
+        /* セミコロンの有無を厳格にチェックしています */
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
     };
@@ -13,7 +12,7 @@
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
 
-        /* カッコを外し、最も標準的な記述に変更しました */
+        /* ここが14行目付近です。末尾の ; を忘れないでください */
         interrupt-gpios = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
 
         gpios
