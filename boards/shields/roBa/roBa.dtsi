@@ -1,9 +1,9 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
     chosen {
-        /* セミコロンの有無を厳格にチェックしています */
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
     };
@@ -12,16 +12,17 @@
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
 
-        /* ここが14行目付近です。末尾の ; を忘れないでください */
-        interrupt-gpios = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
+        /* XIAO BLE D0 = P0.02 なので直接指定します */
+        interrupt-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
 
+        /* 6つのピンを直接指定 (D1, D2, D3, D6, D7, D8) */
         gpios
-            = <&xiao_d 1 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 2 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 3 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 6 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 7 GPIO_ACTIVE_HIGH>
-            , <&xiao_d 8 GPIO_ACTIVE_HIGH>
+            = <&gpio0 3 GPIO_ACTIVE_HIGH>  /* D1 */
+            , <&gpio0 28 GPIO_ACTIVE_HIGH> /* D2 */
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> /* D3 */
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> /* D6 */
+            , <&gpio0 11 GPIO_ACTIVE_HIGH> /* D7 */
+            , <&gpio1 12 GPIO_ACTIVE_HIGH> /* D8 */
             ;
     };
 
