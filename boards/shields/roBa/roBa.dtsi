@@ -1,5 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
+/* GPIOフラグの定義を確実に読み込むために追加 */
+#include <dt-bindings/zmk/keys.h>
 
 / {
     chosen {
@@ -7,13 +9,12 @@
         zmk,matrix-transform = &default_transform;
     };
 
-    /* Pinkeybdの配線定義 */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-charlieplex";
         wakeup-source;
 
-        /* カッコを除去し、定義をシンプルにしました */
-        interrupt-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        /* カッコを外し、最も標準的な記述に変更しました */
+        interrupt-gpios = <&xiao_d 0 GPIO_ACTIVE_HIGH>;
 
         gpios
             = <&xiao_d 1 GPIO_ACTIVE_HIGH>
