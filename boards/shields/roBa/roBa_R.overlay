@@ -1,12 +1,7 @@
 #include "roBa.dtsi"
 
 &kscan0 {
-    /* チャーリープレックス配線ではこの項目が不要なため削除しました */
-};
-
-/* エラー回避のために一時的に無効化しています */
-/*
-&right_encoder {
+    /* Pinkeybdのチャーリープレックス用設定に強制上書き */
+    compatible = "zmk,kscan-gpio-charlieplex";
     status = "okay";
 };
-*/
