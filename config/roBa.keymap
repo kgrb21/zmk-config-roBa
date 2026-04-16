@@ -1,26 +1,19 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 
 / {
-    /* * トラックボールの設定（一旦エラー回避のために無効化）
-     * Pinkeybdのピン設定（D9, D10）が完了した後に再度有効化します
-     */
-    /*
-    trackball_device: &trackball {
-        status = "okay";
-    };
-    */
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I     &kp O   &kp P
-                &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K     &kp L   &kp SEMI
-                &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp COMMA &kp DOT &kp SLASH
-                            &kp LCTRL &kp LSHFT  &kp SPACE &kp ENTER
+                &kp Q &kp W &kp E &kp R &kp T &kp Y
+                &kp U &kp I &kp O &kp P &kp A &kp S
+                &kp D &kp F &kp G &kp H &kp J &kp K
+                &kp L &kp Z &kp X &kp C &kp V &kp B
+                &kp N &kp M &kp N1 &kp N2 &kp N3 &kp N4
+                &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp SEMI &kp SQT
             >;
         };
     };
