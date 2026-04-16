@@ -2,7 +2,7 @@
 
 &kscan0 {
     compatible = "zmk,kscan-gpio-charlieplex";
-    /* Pinkeybdの7本のピン(D0-D6)を定義 */
+    /* Pinkeybd(XIAO BLE)で使用する7本のピンを指定 */
     gpios
         = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -14,7 +14,7 @@
         ;
 };
 
-/* エンコーダーを無効化 */
+/* エンコーダーは無効化 */
 /*
 &left_encoder {
     status = "okay";
