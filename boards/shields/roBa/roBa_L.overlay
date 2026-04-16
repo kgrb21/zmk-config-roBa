@@ -1,7 +1,22 @@
 #include "roBa.dtsi"
 
 &kscan0 {
-    /* Pinkeybdのチャーリープレックス用設定に強制上書き */
     compatible = "zmk,kscan-gpio-charlieplex";
+    /* Pinkeybd(XIAO BLE)で使用する7本のピンを指定 */
+    gpios
+        = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+};
+
+/* エンコーダーは無効化 */
+/*
+&left_encoder {
     status = "okay";
 };
+*/
