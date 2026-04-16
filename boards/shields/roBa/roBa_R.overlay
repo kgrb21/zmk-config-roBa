@@ -1,10 +1,10 @@
 #include "roBa.dtsi"
 
 &kscan0 {
-    diode-direction = "col2row";
+    /* チャーリープレックス配線ではこの項目が不要なため削除しました */
 };
 
-/* Pinkeybdにはエンコーダーがないため、エラー回避のために一時的に無効化します */
+/* エラー回避のために一時的に無効化しています */
 /*
 &right_encoder {
     status = "okay";
