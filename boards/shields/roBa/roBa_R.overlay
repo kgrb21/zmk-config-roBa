@@ -7,6 +7,7 @@
     };
 
     pinkeybd_transform: matrix_transform {
+        /* 左手側と同じ定義を共有します */
         compatible = "zmk,matrix-transform";
         rows = <11>;
         columns = <6>;
@@ -23,6 +24,7 @@
     compatible = "zmk,kscan-gpio-charlieplex";
     wakeup-source;
     interrupt-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) >;
+    row-offset = <6>; /* 右手側の信号を後半のRC(6,x)以降に割り振ります */
     gpios
         = <&xiao_d 1 GPIO_ACTIVE_HIGH>
         , <&xiao_d 2 GPIO_ACTIVE_HIGH>
