@@ -22,9 +22,7 @@
 &kscan0 {
     compatible = "zmk,kscan-gpio-charlieplex";
     wakeup-source;
-    /* D0 を割り込み専用に設定 */
     interrupt-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) >;
-    /* 文字の読み取りに使う6本のピンを正確に指定 */
     gpios
         = <&xiao_d 1 GPIO_ACTIVE_HIGH>
         , <&xiao_d 2 GPIO_ACTIVE_HIGH>
