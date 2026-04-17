@@ -1,6 +1,11 @@
 #include "roBa.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 
+/* 【最重要】シリアル通信を無効化し、D6・D7ピンをキーボード用に解放する */
+&xiao_serial {
+    status = "disabled";
+};
+
 / {
     chosen {
         zmk,matrix-transform = &pinkeybd_transform;
@@ -21,8 +26,7 @@
 
 &kscan0 {
     compatible = "zmk,kscan-gpio-charlieplex";
-    wakeup-source;
-    interrupt-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) >;
+    /* バグや干渉を防ぐため、D0の割り込みは外し純粋なスキャンに集中させます */
     gpios
         = <&xiao_d 1 GPIO_ACTIVE_HIGH>
         , <&xiao_d 2 GPIO_ACTIVE_HIGH>
